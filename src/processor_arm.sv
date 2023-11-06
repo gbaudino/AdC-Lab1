@@ -43,7 +43,7 @@ module processor_arm #(parameter N = 64)
 									.DM_readEnable(DM_readEnable));				
 					
 					
-	imem 				instrMem (.addr(IM_address[7:2]),
+	imem 				instrMem (.addr(IM_address[8:2]),
 									.q(q));
 									
 	

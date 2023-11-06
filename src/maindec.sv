@@ -15,7 +15,7 @@ module maindec (input logic [10:0] Op,
 			11'b110_0101_1000 : results = 9'b000100010;
 			11'b100_0101_0000 : results = 9'b000100010;
 			11'b101_0101_0000 : results = 9'b000100010;
-			11'b110_1001_01?? : results = 9'b110100011;
+			11'b110_1001_01?? : results = 9'b110100011; //MOVZ
 			default : results = 9'b000000000;
 		endcase 
 		
