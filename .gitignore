@@ -3,5 +3,10 @@
 *.list
 src/simulation
 src/db
-*.bak
+src/*.bak
 src/*_tb.sv
+rom-gen/*.txt
+*.rpt
+src/simulation
+src/incremental_db
+src/output_files

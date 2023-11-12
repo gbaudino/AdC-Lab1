@@ -54,7 +54,14 @@
     ADD XZR, XZR, XZR //NOP
     ADD XZR, XZR, XZR //NOP
     STUR XZR, [X0, #120]
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
     CBZ X0, L1
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
     STUR X21, [X0, #128]
 L1:
     STUR X21, [X0, #136]
@@ -69,6 +76,9 @@ L2:
     STUR X24, [X0, #144]
     ADD X0, X0, X8
     CBZ X2, L2
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
     STUR X30, [X0, #144]
     ADD X30, X30, X30
     SUB X21, XZR, X21
@@ -81,5 +91,15 @@ L2:
     ADD XZR, XZR, XZR //NOP
     ADD XZR, XZR, XZR //NOP
     ADD X30, X30, X16
+    ADD XZR, XZR, XZR //NOP
+    ADD XZR, XZR, XZR //NOP
     STUR X25, [X30, #-8]
+    MOVZ X26, 0xDEAD, lsl #0
+    MOVZ X27, 0x7ECA, lsl #16
+    MOVZ X28, 0xC0CA, lsl #32
+    MOVZ X29, 0xFEED, lsl #48
+    STUR X26, [x30, #0]  // MEM 22: 0xDEAD
+    STUR X27, [x30, #8]  // MEM 23: 0x7ECA0000
+    STUR X28, [x30, #16] // MEM 24: 0xC0CA00000000
+    STUR X29, [x30, #24] // MEM 25: 0xFEED000000000000
 finloop: CBZ XZR, finloop
