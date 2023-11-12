@@ -2,20 +2,23 @@ ARMGNU ?= aarch64-linux-gnu
 
 AOPS = --warn --fatal-warnings
 
-SRC = main
+asm : main.list
 
-all : $(SRC).list
+all : asm
 
 clean :
-	rm -f $(SRC).o
-	rm -f $(SRC).list
-	rm -f $(SRC).elf
+	rm -f *.o
+	rm -f *.img
+	rm -f *.hex
+	rm -f *.list
+	rm -f *.elf
+	rm -f memory_map.txt
 
-$(SRC).o : $(SRC).s
-	$(ARMGNU)-as $(AOPS) $(SRC).s -o $(SRC).o
+main.o : main.s
+	$(ARMGNU)-as $(AOPS) main.s -o main.o
 
 
-$(SRC).list: memmap $(SRC).o
-	$(ARMGNU)-ld $(SRC).o -T memmap -o $(SRC).elf
-	$(ARMGNU)-objdump -Dz $(SRC).elf > $(SRC).list
-
+main.list: memmap main.o 
+	$(ARMGNU)-ld main.o -T memmap -o main.elf -M > memory_map.txt
+	$(ARMGNU)-objdump -D main.elf > main.list
+	

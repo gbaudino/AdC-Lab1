@@ -38,7 +38,8 @@ architecture behave of dmem is
       while i <= MAX_BOUND-1 loop        
 		  write(dumpline, i);
 		  write(dumpline, string'(" "));
-		  write(dumpline, to_bitvector(mem(i)));		
+--		  write(dumpline, to_bitvector(mem(i)));		
+		  hwrite(dumpline, to_bitvector(mem(i)));
 		  -- Para obtener el resultado en hexa, reemplazar la línea anterior por: hwrite(dumpline, to_bitvector(mem(i)));
 		  -- Si Quartus da error, configurar: Settings - Compiler Settings - VHDL Input - VHDL 2008			  
 		  writeline(dumpfile,dumpline);

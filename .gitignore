@@ -1,0 +1,7 @@
+*.o
+*.elf
+*.list
+src/simulation
+src/db
+*.bak
+src/*_tb.sv
