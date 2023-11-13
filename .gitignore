@@ -10,3 +10,5 @@ rom-gen/*.txt
 src/simulation
 src/incremental_db
 src/output_files
+*.txt
+processor_arm.qws
